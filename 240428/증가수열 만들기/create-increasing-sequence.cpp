@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,15 +16,15 @@ int main()
         cin >> list[i];
     }
 
-    int count = 0;
+    long long count = 0;
 
-    for (int i = 1; i < n; ++i) 
+    for (int i = n - 2; i >= 0; i--) 
     {
-        if (list[i-1] >= list[i]) 
+        if (list[i] >= list[i + 1]) 
         {
-            int decrease = list[i-1] - list[i] + 1;
+            int decrease = list[i] - list[i + 1] + 1;
             count += decrease;
-            list[i] += decrease; 
+            list[i] = list[i + 1] - 1; 
         }
     }
 
