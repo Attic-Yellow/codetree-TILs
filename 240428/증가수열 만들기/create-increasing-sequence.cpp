@@ -1,30 +1,33 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() 
 {
     int n;
-    int count = 0;
-
     cin >> n;
 
-    int list[n];
+    vector<int> list(n);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i) 
     {
         cin >> list[i];
     }
 
-    for (int i = 0; i < n - 1; i++)
+    int count = 0;
+
+    for (int i = 1; i < n; ++i) 
     {
-        while (list[i] > list[i + 1] - 1)
+        if (list[i-1] >= list[i]) 
         {
-           list[i] -= 1;
-           count++;
+            int decrease = list[i-1] - list[i] + 1;
+            count += decrease;
+            list[i] += decrease; 
         }
     }
 
     cout << count;
+
     return 0;
 }
