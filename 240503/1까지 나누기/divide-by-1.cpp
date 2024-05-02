@@ -11,13 +11,19 @@ int main()
 
     int answer = n;
 
-    while (answer > 1)
+    while (true)
     {
         answer /= i;
+
+        if (answer < 1)
+        {
+            break;
+        }
+
         i++;
     }
 
-    cout << i - 1;
+    cout << i;
 
     return 0;
 }
