@@ -17,7 +17,7 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        if (N[i] % 3 == 0)
+        if (N[i] % 3 == 0 && N[i] % 2 != 0)
         {
             cout << N[i] << "\n";
         }
